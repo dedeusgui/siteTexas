@@ -1,0 +1,219 @@
+:root {
+  --paper: #fbf6ef;
+  --accent-dark: #4b2f20;
+  --accent-mid: #8b5a33;
+  --accent-light: #c79b63;
+  --muted: #6b4f3b;
+  --text: #2b1f19;
+  --card-bg: #fffdf9;
+  --radius: 16px;
+  --shadow: 0 18px 40px rgba(41, 33, 29, 0.1);
+  --transition: 260ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --primary-1: #8b4513;
+  --primary-2: #d2691e;
+  --primary-3: #cd853f;
+  --secondary-1: #ffd700;
+  --secondary-2: #f5deb3;
+  --secondary-3: #deb887;
+  --text-1: #2f1b14;
+  --text-2: #654321;
+  --text-3: #a0522d;
+  --gradient-1: linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #cd853f 100%);
+  --gradient-2: linear-gradient(145deg, #f5deb3, #deb887);
+  --gradient-3: linear-gradient(145deg, #ffd700, #ffa500);
+  --gradient-4: linear-gradient(rgba(139, 69, 19, 0.9), rgba(160, 82, 45, 0.9));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Rye", cursive, "Merriweather", serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--paper), #f3efe6);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+nav h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-1);
+}
+
+#pontos-turisticos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+  padding: 2rem;
+  background-color: var(--secondary-3);
+}
+
+.tourist-spot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 460px;
+  min-height: 540px;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--gradient-1);
+  color: var(--secondary-2);
+  border: 2px solid rgba(90, 70, 55, 0.1);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.tourist-spot:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 65px rgba(41, 33, 29, 0.15);
+  border-color: var(--accent-mid);
+}
+
+.tourist-spot img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 8px);
+}
+
+.tourist-spot h2 {
+  font-size: 1.8rem;
+  color: var(--paper);
+  letter-spacing: 0.6px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(43, 31, 25, 0.9);
+}
+
+.tourist-spot p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: var(--secondary-2);
+  text-shadow: 1px 1px 3px rgba(43, 31, 25, 0.8);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--gradient-3);
+}
+
+#mapa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: var(--max-width, 1100px);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--gradient-2);
+}
+
+#map {
+  width: 100%;
+  height: 52vh;
+  min-height: 420px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(41, 33, 29, 0.05);
+  background-color: var(--secondary-1);
+}
+
+button {
+  font-family: "Rye", cursive;
+  padding: 12px 24px;
+  background-color: var(--primary-3);
+  color: var(--text-1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition);
+}
+
+button:hover {
+  background-color: var(--primary-2);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.96);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--gradient-4);
+  color: #fbf6ef;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+.leaflet-popup-content {
+  font-family: "Rye", cursive;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 !important;
+  text-align: center;
+}
+
+.leaflet-popup-content b {
+  font-size: 1.2rem;
+  color: var(--secondary-1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--gradient-2);
+  color: var(--text-1);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  #pontos-turisticos {
+    padding: 1rem;
+  }
+
+  .tourist-spot {
+    min-height: auto;
+  }
+
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  #map {
+    height: 44vh;
+  }
+}

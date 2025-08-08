@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Texas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rye&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <h1>Bem-vindo ao Texas</h1>
+    </nav>
+    <section id="pontos-turisticos">
+      <div class="tourist-spot">
+        <h2>The Alamo</h2>
+        <p>Cidade: San Antonio</p>
+        <p>
+          Originalmente uma missão espanhola, o Alamo é um dos locais mais
+          sagrados da história do Texas. Este forte foi o palco da lendária
+          Batalha do Alamo em 1836, onde heróis como James Bowie e Davy Crockett
+          lutaram até o fim. Hoje, é um símbolo duradouro da coragem e do
+          sacrifício em nome da liberdade e um Patrimônio Mundial da UNESCO que
+          você não pode perder.
+        </p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/d/dd/1854_Alamo.jpg"
+          alt="Imagem do Alamo"
+        />
+        <button
+          onclick="mudaMapa('Alamo'); window.scrollTo(0, document.body.scrollHeight)"
+        >
+          Ver localização no mapa
+        </button>
+      </div>
+
+      <div class="tourist-spot">
+        <h2>Fort Worth Stockyards</h2>
+        <p>Cidade: Fort Worth</p>
+        <p>
+          Volte no tempo no Fort Worth Stockyards, um distrito histórico que
+          personifica o espírito do Velho Oeste. Testemunhe a única condução de
+          gado diária do mundo, explore ruas de paralelepípedos, assista a um
+          rodeio emocionante e visite o maior honky-tonk do mundo. É uma imersão
+          completa na cultura cowboy que definiu o Texas.
+        </p>
+        <img
+          src="https://www.fortworthstockyards.org/sites/default/files/2022-04/FW%20Herd%20drive%20under%20sign%2013x19%20print%20no%20logo-_0.jpeg"
+          alt="Imagem do Fort Worth Stockyards"
+        />
+        <button
+          onclick="mudaMapa('Forth'); window.scrollTo(0, document.body.scrollHeight)"
+        >
+          Ver localização no mapa
+        </button>
+      </div>
+
+      <div class="tourist-spot">
+        <h2>Texas Ranger Hall of Fame</h2>
+        <p>Cidade: Waco</p>
+        <p>
+          Descubra a história da mais antiga agência de aplicação da lei da
+          América do Norte. Este museu é o repositório oficial da lendária força
+          dos Texas Rangers. Explore exposições de artefatos raros, armas de
+          fogo icônicas, e mergulhe nas histórias de bravura e justiça que
+          transformaram os Rangers em ícones do Velho Oeste.
+        </p>
+        <img
+          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/6f/7a/d3/texas-ranger-hall-of.jpg?w=1200&h=-1&s=1"
+          alt="Imagem do Texas Ranger Hall of Fame"
+        />
+        <button
+          onclick="mudaMapa('Texas Ranger'); window.scrollTo(0, document.body.scrollHeight)"
+        >
+          Ver localização no mapa
+        </button>
+      </div>
+
+      <div class="tourist-spot">
+        <h2>Bandera</h2>
+        <p>Cidade: Bandera</p>
+        <p>
+          A autoproclamada "Capital Mundial dos Cowboys" faz jus ao seu nome.
+          Bandera é o lugar perfeito para viver uma autêntica experiência de
+          cowboy. Com seus ranchos históricos, saloons rústicos, música ao vivo
+          e cavalgadas pelas colinas do Texas, a cidade oferece uma fuga para a
+          cultura e as tradições que ainda definem a fronteira americana.
+        </p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Downtown_Bandera_1_Wiki_%281_of_1%29.jpg/1200px-Downtown_Bandera_1_Wiki_%281_of_1%29.jpg"
+          alt="Imagem de Bandera"
+        />
+        <button
+          onclick="mudaMapa('Bandera'); window.scrollTo(0, document.body.scrollHeight)"
+        >
+          Ver localização no mapa
+        </button>
+      </div>
+
+      <div class="tourist-spot">
+        <h2>Big Bend National Park</h2>
+        <p>Cidade: Brewster County</p>
+        <p>
+          Explore a beleza selvagem do Big Bend, um parque de contrastes
+          espetaculares. Aqui, montanhas imponentes encontram o vasto Deserto de
+          Chihuahua e desfiladeiros profundos esculpidos pelo Rio Grande. Com
+          mais de 1.200 espécies de plantas, é um paraíso para caminhadas,
+          observação de estrelas e para sentir a solidão majestosa da fronteira
+          do Texas.
+        </p>
+        <img
+          src="https://morethanjustparks.com/wp-content/uploads/2022/03/big-bend-national-park-nps1.jpg"
+          alt="Imagem do Big Bend National Park"
+        />
+        <button
+          onclick="mudaMapa('Big Bend'); window.scrollTo(0, document.body.scrollHeight)"
+        >
+          Ver localização no mapa
+        </button>
+      </div>
+    </section>
+    <div class="container">
+      <section id="mapa">
+        <div id="map"></div>
+        <button onclick="mudaMapa('padrao') ">Voltar ao Padrão</button>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Todos os direitos reservados.</p>
+    </footer>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
